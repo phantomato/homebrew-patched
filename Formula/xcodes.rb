@@ -8,6 +8,8 @@ class Xcodes < Formula
   bottle do
     root_url "https://github.com/phantomato/xcodes/releases/download/1.4.2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma: "244acd990847401e65286daa3ff5abb16684625b373bfb9bf0dd755118b209df"
+    sha256 cellar: :any_skip_relocation, arm64_mojave: "244acd990847401e65286daa3ff5abb16684625b373bfb9bf0dd755118b209df"
+    sha256 cellar: :any_skip_relocation, mojave:       "244acd990847401e65286daa3ff5abb16684625b373bfb9bf0dd755118b209df"    
   end
 
   def install
