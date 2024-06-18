@@ -1,19 +1,14 @@
 class Xcodes < Formula
   desc "The best command-line tool to install and switch Xcodes."
   homepage ""
-  url "https://github.com/phantomato/xcodes.git", tag: "1.4.2"
+  url "https://github.com/phantomato/xcodes/releases/download/1.4.2/xcodes.zip"
+  sha256 "df1ae28c1fee678e8d07afe852b5f869097a2c49bf7b0508be19d1aa6bec46cb"
   license "MIT"
   head "https://github.com/phantomato/xcodes.git", branch: "main"
-
-  bottle do
-    root_url "https://github.com/phantomato/xcodes/releases/download/1.4.2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "244acd990847401e65286daa3ff5abb16684625b373bfb9bf0dd755118b209df"
-    sha256 cellar: :any_skip_relocation, arm64_mojave: "244acd990847401e65286daa3ff5abb16684625b373bfb9bf0dd755118b209df"
-    sha256 cellar: :any_skip_relocation, mojave:       "244acd990847401e65286daa3ff5abb16684625b373bfb9bf0dd755118b209df"    
-  end
+  depends_on :macos
 
   def install
-    system "make", "install", "prefix=#{prefix}"
+    build.head? ? system("make", "install", "prefix=#{prefix}") : bin.install("xcodes")
   end
 
   test do
